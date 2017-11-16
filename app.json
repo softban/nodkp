@@ -1,0 +1,7 @@
+{
+  "name": "nodkp",
+  "description": "dkp management discord.js bot",
+  "repository": "https://github.com/softban/nodkp",
+  "logo": "https://avatars0.githubusercontent.com/u/26847071?v=4&s=460",
+  "keywords": ["discord", "node", "bot", "dkp"]
+}
