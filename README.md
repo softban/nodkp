@@ -11,4 +11,4 @@ nodkp, is a Discord bot aimed at the management of DKP. It allows the allocation
 ![Configure-Variables](https://raw.githubusercontent.com/softban/nodkp/master/setup/configure-variables.png) |
 **Step Three** in the upper-right corner, the **More** dropdown will allow you to restart your worker dyno |
 ![Restart-Dyno](https://raw.githubusercontent.com/softban/nodkp/master/setup/restart-dyno.png) |
-**Step Four** If you have issues, you can troubleshoot through **View logs**. Once finished, add a role to your server named `Raid Leader`, anyone leading a raid will need this to access the bots internal `leader` commands. Note that the role does not need any special permissions. Finally create a text channel with the name of your raid group and run `@bot init` in your new channel |
+**Step Four** If you have issues, you can troubleshoot through **View logs**. Once finished, add a role to your server named `Raid Leader`, anyone leading a raid will need this to access the bots internal `leader` commands. Note that the role does not need any special permissions. Finally create a text channel with the name of your raid group and run `@bot init` in your new channel! |
