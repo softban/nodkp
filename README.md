@@ -4,7 +4,7 @@ nodkp, is a Discord bot aimed at the management of DKP. It allows the allocation
 
 ---
 
-![discord-preview](https://raw.githubusercontent.com/softban/nodkp/update-readme/setup/discord-preview.png)
+![discord-preview](https://raw.githubusercontent.com/softban/nodkp/master/setup/discord-preview.png)
 
 ---
 
