@@ -2,6 +2,12 @@
 
 nodkp, is a Discord bot aimed at the management of DKP. It allows the allocation of DKP to players & allows bidding for items through Discord and can handle multiple raid groups, separated by text channels.
 
+---
+
+![discord-preview](https://raw.githubusercontent.com/softban/nodkp/update-readme/setup/discord-preview.png)
+
+---
+
 ## Setup
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy) |
 :---------:|
