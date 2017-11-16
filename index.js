@@ -197,7 +197,7 @@ function bid(message, database, option) {
       if (table[row]['active'] && table[row]['raid'] === message.channel.name && market[message.channel.name].active) {
         let raid_members = table[row]['members'];
         for (let user in raid_members) {if (ontime[message.channel.name].indexOf(user) > -1 && message.author.username === user) {
-          if (parseInt(option) < parseInt(raid_members[user]) && parseInt(option) > market[message.channel.name].bid) {
+          if (parseInt(option) <= parseInt(raid_members[user]) && parseInt(option) > market[message.channel.name].bid) {
             market[message.channel.name].player = message.author.username;
             market[message.channel.name].bid = parseInt(option);
 
