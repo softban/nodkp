@@ -22,6 +22,7 @@ module.exports = {
       .addField('join', '(**player**) *Joins the raid.*')
       .addField('balance', '(**player**) *Show personal dkp balance.*')
       .addField('bid [int]', '(**player**) *Requires an amount, (@bot bid 10). Allows players to bid their dkp for current auction item.*')
+      .addBlankField(true)
       .setTimestamp();
     return embed;
   },
