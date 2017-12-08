@@ -1,34 +1,13 @@
-var express = require('express');
-var app = express();
-var io = require('socket.io')(http);
-var path = require('path');
 
+const path = require('path');
+const express = require('express');
+const server = express()
+  .use((req, res) => res.sendFile(path.join(__dirname, 'view/index.html')))
+  .listen(process.env.WEBPORT, () => console.log(`[+] listening on ${process.env.WEBPORT}`));
 
+const io = require('socket.io')(server);
 
-const RAIDGROUP = {};
-
-var mDB = require('mongodb').MongoClient;
-mDB.connect(process.env.MONGODB_URI, (err, database) => {
-  var collection = database.collection('raid-groups');
-  collection.find({}).toArray((err, table) => {
-    for (let row in table) {
-      for (let user in table[row]['members']) {
-        RAIDGROUP[user]=table[row]['members'][user];
-      }
-    }
+io.on('connection', (socket) => {
+  console.log('Client connected');
+  socket.on('disconnect', () => console.log('Client disconnected'));
 });
-
-app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, 'view/index.html'));
-});
-
-io.on('connection', function(socket) {
-  console.log('connect');
-  io.emit('raid-group', RAIDGROUP);
-
-  socket.on('disconnect', function() {
-    console.log('disconnect');
-  });
-});
-
-app.listen(port);
