@@ -3,11 +3,9 @@ const path = require('path');
 const express = require('express');
 const socketio = require('socket.io')
 
-const PORT = 3000;
-
 const server = express()
   .use((req, res) => res.sendFile(path.join(__dirname, 'view/index.html')))
-  .listen(PORT, () => console.log(`[+] listening on ${PORT}`));
+  .listen(process.env.PORT, () => console.log(`[+] listening on ${process.env.PORT}`));
 
 const io = socketio(server);
 
