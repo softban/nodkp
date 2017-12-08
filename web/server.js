@@ -22,16 +22,15 @@ var MDB = [
 ];
 */
 
-const data = [];
+const DATA = [];
 
 var mDB = require("mongodb").MongoClient;
 mDB.connect(process.env.MONGODB_URI, (err, database) => {
   var collection = database.collection("raid-groups");
   collection.find({}).toArray((err, table) => {
     for (let row in table) {
-      data.push(table[row]);
+      DATA.push(table[row]);
     }
-    console.log(data);
   });
 });
 
@@ -41,7 +40,7 @@ const server = express()
       title: "Hello",
       message: "World",
 
-      database: MDB,
+      database: DATA,
 
       logInput: () => {
         console.log('input-enter')
