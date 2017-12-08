@@ -2,18 +2,27 @@ const express = require('express');
 const socketIO = require('socket.io');
 const path = require('path');
 
-const PORT = process.env.PORT || 3000;
-const INDEX = path.join(__dirname, 'view/index.html');
+const RAIDGROUP = {};
 
 const server = express()
-  .use((req, res) => res.sendFile(INDEX) )
-  .listen(PORT, () => console.log(`Listening on ${ PORT }`));
+  .use((req, res) => res.sendFile(path.join(__dirname, 'view/index.html')) )
+  .listen(process.env.PORT, () => console.log(`Listening on ${process.env.PORT}`));
 
 const io = socketIO(server);
 
-io.on('connection', (socket) => {
-  console.log('Client connected');
-  socket.on('disconnect', () => console.log('Client disconnected'));
+var mDB = require('mongodb').MongoClient;
+mDB.connect(process.env.MONGODB_URI, (err, database) => {
+  var collection = database.collection('raid-groups');
+  collection.find({}).toArray((err, table) => {
+    for (let row in table) {
+      for (let user in table[row]['members']) {
+        RAIDGROUP[user]=table[row]['members'][user];
+      }
+    }
 });
 
-setInterval(() => io.emit('time', new Date().toTimeString()), 1000);
+io.on('connection', (socket) => {
+  console.log('[+] client connected.');
+  io.emit('display-raid', RAIDGROUP);
+  socket.on('disconnect', () => console.log('[-] client disconnected.'));
+});
