@@ -31,6 +31,7 @@ mDB.connect(process.env.MONGODB_URI, (err, database) => {
     for (let row in table) {
       data.push(table[row]);
     }
+    console.log(data);
   });
 });
 
@@ -47,5 +48,3 @@ const server = express()
       }
   }))
   .listen(process.env.PORT, () => console.log(`[!] listening on ${process.env.PORT}`));
-
-console.log(data);
