@@ -6,7 +6,7 @@ var path = require('path');
 
 
 
-const RAIDGROUP;
+const RAIDGROUP = {};
 
 var mDB = require('mongodb').MongoClient;
 mDB.connect(process.env.MONGODB_URI, (err, database) => {
