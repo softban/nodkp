@@ -21,12 +21,15 @@ var MDB = [
   }
 ];
 */
+
+const data = [];
+
 var mDB = require("mongodb").MongoClient;
 mDB.connect(process.env.MONGODB_URI, (err, database) => {
   var collection = database.collection("raid-groups");
   collection.find({}).toArray((err, table) => {
     for (let row in table) {
-      console.log(table[row]);
+      data.push(table[row]);
     }
   });
 });
@@ -44,3 +47,5 @@ const server = express()
       }
   }))
   .listen(process.env.PORT, () => console.log(`[!] listening on ${process.env.PORT}`));
+
+console.log(data);
