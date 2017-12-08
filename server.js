@@ -19,6 +19,7 @@ mDB.connect(process.env.MONGODB_URI, (err, database) => {
         RAIDGROUP[user]=table[row]['members'][user];
       }
     }
+  });
 });
 
 io.on('connection', (socket) => {
