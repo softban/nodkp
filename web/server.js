@@ -26,7 +26,7 @@ mDB.connect(process.env.MONGODB_URI, (err, database) => {
   var collection = database.collection("raid-groups");
   collection.find({}).toArray((err, table) => {
     for (let row in table) {
-      console.log(row);
+      console.log(table[row]);
     }
   });
 });
