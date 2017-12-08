@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 
-/*
+// Testing Data
 var MDB = [
   {
     "raid": "unicorn",
@@ -20,8 +20,8 @@ var MDB = [
     }
   }
 ];
-*/
 
+/* Mongo Database Import Section - WORKING!
 const DATA = [];
 
 var mDB = require("mongodb").MongoClient;
@@ -33,7 +33,7 @@ mDB.connect(process.env.MONGODB_URI, (err, database) => {
     }
   });
 });
-
+*/
 const server = express()
   .set('view engine', 'pug')
   .use((req, res) => res.render(path.join(__dirname, 'index.pug'), {
