@@ -13,7 +13,7 @@ mDB.connect(process.env.MONGODB_URI, (err, database) => {
   var collection = database.collection('raid-groups');
   collection.find({}).toArray((err, table) => {
     for (let row in table) {
-      for (let user in table[row]['members'];) {
+      for (let user in table[row]['members']) {
         RAIDGROUP[user]=table[row]['members'][user];
       }
     }
