@@ -5,7 +5,11 @@
   "main": "index.js",
   "dependencies": {
     "discord.js": "^11.2.1",
-    "mongodb": "^2.2.33"
+    "express": "^4.16.2",
+    "http": "0.0.0",
+    "mongodb": "^2.2.33",
+    "path": "^0.12.7",
+    "socket.io": "^2.0.4"
   },
   "devDependencies": {},
   "scripts": {
