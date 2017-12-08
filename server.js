@@ -1,9 +1,12 @@
 
 const path = require('path');
 const express = require('express');
-const server = express();
+const socketio = require('socket.io')
 
-const io = require('socket.io')(server);
+const server = express()
+  .listen(process.env.WEBPORT, () => console.log(`[+] listening on ${process.env.WEBPORT}`));
+
+const io = socketio(server);
 
 io.on('connection', (socket) => {
   console.log('Client connected');
@@ -13,6 +16,3 @@ io.on('connection', (socket) => {
 server.get("/", function(req, res) {
  res.send("Heroku Demo!");
 });
-
-server.listen(process.env.PORT);
-console.log(`[+] listening on ${process.env.PORT}`);
