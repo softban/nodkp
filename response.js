@@ -37,7 +37,7 @@ module.exports = {
   raidStart: (discord, message) => {
     let embed = new discord.RichEmbed()
       .setColor('#abfca6')
-      .setDescription(`**${message.channel.name}** raid will being in **15 minutes**!`);
+      .setDescription(`**${message.channel.name}** raid will begin in **15 minutes**!`);
     return embed;
   },
 
