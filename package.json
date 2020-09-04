@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "discord.js": "^11.2.1",
-    "mongodb": "^2.2.33"
+    "mongodb": "^3.6.1"
   },
   "devDependencies": {},
   "scripts": {
